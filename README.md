@@ -85,33 +85,17 @@ contact-management-feature/
 
 <h2>🖥 Running Locally</h2>
 
-<h3>1️⃣ Clone Repository</h3>
-
-<pre>
-git clone https://github.com/YOUR_USERNAME/contact-management-feature.git
-cd contact-management-feature
-</pre>
-
-<hr/>
-
-<h3>2️⃣ Backend Setup</h3>
-
-<pre>
-cd server
-npm install
-</pre>
-
 <h4>Create .env file inside /server</h4>
 
 <pre>
-DATABASE_URL=postgresql://postgres:password@localhost:5432/contact_db
+DATABASE_URL=postgresql://postgres:0000@localhost:5432/mydb
 PORT=5000
 </pre>
 
 <h4>Run Migrations</h4>
 
 <pre>
-npx drizzle-kit push
+npx drizzle-kit push --config=drizzle.config.cjs
 </pre>
 
 <h4>Start Backend</h4>
@@ -129,14 +113,7 @@ Backend runs on: <b>http://localhost:5000</b>
 <h3>3️⃣ Frontend Setup</h3>
 
 <pre>
-cd client
-npm install
-</pre>
-
-<h4>Create .env file inside /client</h4>
-
-<pre>
-VITE_API_URL=http://localhost:5000
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
 </pre>
 
 <h4>Start Frontend</h4>
@@ -146,7 +123,7 @@ npm run dev
 </pre>
 
 <p>
-Frontend runs on: <b>http://localhost:5173/contacts</b>
+Frontend runs on: <b>http://localhost:3000/contacts</b>
 </p>
 
 <hr/>
@@ -218,35 +195,18 @@ Frontend runs on: <b>http://localhost:5173/contacts</b>
 
 <hr/>
 
-<h2>🖼 Screenshots</h2>
-
-<p>Add screenshots inside <b>/screenshots</b> folder</p>
-
-<img src="./screenshots/contacts-page.png" width="800"/>
-<br/><br/>
-<img src="./screenshots/add-contact.png" width="800"/>
-<br/><br/>
-<img src="./screenshots/delete-confirmation.png" width="800"/>
-
-<hr/>
-
 <h2>🧪 Assumptions</h2>
 
 <ul>
   <li>No authentication required</li>
-  <li>Search works on name and company</li>
-  <li>Production deployed on Vercel</li>
+  <li>Production deployed on vercel.com</li>
+  <li>Backend deployed on render.com</li>
+  <li>Postgress SQL deployed on neon.com</li>
 </ul>
 
 <hr/>
 
 <h2>👨‍💻 Author</h2>
-
-<p>
-<b>Shiva Verma</b><br/>
-Full Stack Developer<br/>
-1 Year Freelance + 2.1 Years SDE-1 Experience
-</p>
 
 <hr/>
 
