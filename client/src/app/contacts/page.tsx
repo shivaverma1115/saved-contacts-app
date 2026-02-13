@@ -12,8 +12,9 @@ export default function ContactsPage() {
 
     return (
         <div className="py-10 px-4 max-w-3xl mx-auto">
+            <h1 className="text-2xl font-bold mb-4 text-center text-gray-800 underline underline-offset-8">Contact Management Feature</h1>
             <div className="flex justify-between items-center mb-4">
-                <h1 className="text-2xl font-bold">Saved Contacts</h1>
+                <h2 className="text-2xl font-semibold text-gray-800">Saved Contacts</h2>
 
                 <AddContactModal />
             </div>

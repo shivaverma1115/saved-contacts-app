@@ -25,7 +25,7 @@ export default function AddContactModal() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-
+        console.log(form)
         addContact.mutate(form, {
             onSuccess: () => {
                 setOpen(false);
@@ -76,7 +76,6 @@ export default function AddContactModal() {
                                 value={form.email}
                                 onChange={handleChange}
                                 className="border p-2 w-full"
-                                required
                             />
 
                             <input
@@ -86,7 +85,8 @@ export default function AddContactModal() {
                                 value={form.phone}
                                 onChange={handleChange}
                                 className="border p-2 w-full"
-                                required
+                                minLength={10}
+                                maxLength={10}
                             />
 
                             <input
