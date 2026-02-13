@@ -14,11 +14,15 @@ export const useContacts = (search: string) => {
 export const useAddContact = () => {
     const qc = useQueryClient();
 
-    return useMutation({
-        mutationFn: (data) => api.post("/contacts", data),
+    return useMutation<unknown, Error, any>({
+        mutationFn: async (data) => {
+            const res = await api.post("/contacts", data);
+            return res.data;
+        },
         onSuccess: () => qc.invalidateQueries({ queryKey: ["contacts"] })
     });
 };
+
 
 export const useDeleteContact = () => {
     const qc = useQueryClient();
