@@ -2,6 +2,7 @@
 
 import toast from "react-hot-toast";
 import { useDeleteContact } from "../hooks/useContacts";
+import { formatDate } from "../util/util";
 
 
 export default function ContactsTable({ contacts }: any) {
@@ -11,7 +12,7 @@ export default function ContactsTable({ contacts }: any) {
         const isConfirmed = window.confirm("Are you sure you want to delete this contact?");
         if (!isConfirmed) return;
 
-        deleteMutation.mutate(id,{
+        deleteMutation.mutate(id, {
             onSuccess: () => {
                 toast.success("Contact deleted successfully!");
             }
@@ -31,12 +32,17 @@ export default function ContactsTable({ contacts }: any) {
                 </thead>
 
                 <tbody>
-                    {contacts?.map((c: any) => (
+                    {contacts?.data?.map((c: any) => (
                         <tr key={c.id} className="border-t text-center" >
-                            <td>{c.name}</td>
-                            <td>{c.email}</td>
-                            <td>{c.company}</td>
-                            <td>
+                            <td className="px-5">{c.name}</td>
+                            <td className="px-5">{c.email}</td>
+                            <td className="px-5">{c.company}</td>
+                            <td className="px-5">
+                                <pre>
+                                    {formatDate(c.createdAt)}
+                                </pre>
+                            </td>
+                            <td className="px-5">
                                 <button
                                     className="text-red-500"
                                     onClick={() => handleDelete(c.id)}

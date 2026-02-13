@@ -1,15 +1,17 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient, keepPreviousData } from "@tanstack/react-query";
 import { api } from "../lib/api";
 
-export const useContacts = (search: string) => {
+export const useContacts = (search: string, page: number) => {
     return useQuery({
-        queryKey: ["contacts", search],
+        queryKey: ["contacts", search, page],
         queryFn: async () => {
-            const res = await api.get(`/contacts?search=${search}`);
+            const res = await api.get(`/contacts?search=${search}&page=${page}&limit=5`);
             return res.data;
-        }
+        },
+        placeholderData: keepPreviousData
     });
 };
+
 
 export const useAddContact = () => {
     const qc = useQueryClient();
