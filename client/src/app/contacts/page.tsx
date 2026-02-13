@@ -4,6 +4,7 @@ import AddContactModal from "@/src/components/AddContactModal";
 import ContactsTable from "@/src/components/ContactsTable";
 import SearchBar from "@/src/components/SearchBar";
 import { useContacts } from "@/src/hooks/useContacts";
+import Loading from "@/src/ui/loading/Loading";
 import { useState } from "react";
 
 export default function ContactsPage() {
@@ -22,7 +23,7 @@ export default function ContactsPage() {
             <SearchBar onSearch={setSearch} />
 
             {isLoading ? (
-                <p>Loading...</p>
+                <Loading />
             ) : (
                 <ContactsTable contacts={data} />
             )}
