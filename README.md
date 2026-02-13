@@ -206,10 +206,6 @@ Frontend runs on: <b>http://localhost:3000/contacts</b>
 
 <hr/>
 
-<h2>👨‍💻 Author</h2>
-
-<hr/>
-
 <p align="center">
 Made with ❤️ as part of a Full Stack Technical Assessment
 </p>
